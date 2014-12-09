@@ -4,17 +4,18 @@ import java.util.Locale;
 
 import android.app.Activity;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothManager;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
@@ -33,6 +34,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
+
+    private BluetoothAdapter mBTAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+
+        mBTAdapter = ((BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE)).getAdapter();
     }
 
     @Override
@@ -87,6 +92,33 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!isBluetoothEnabled()) {
+            AlertDialog.Builder b = new AlertDialog.Builder(this);
+            b.setMessage(R.string.need_bluetooth)
+                    .setPositiveButton(R.string.enable, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE));
+                        }
+                    })
+                    .setCancelable(false)
+                    .show();
+        }
+    }
+
+    protected boolean isBluetoothEnabled() {
+        BluetoothManager bt = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+        BluetoothAdapter adapter = bt.getAdapter();
+        return adapter != null && adapter.isEnabled();
+    }
+
+    public BluetoothAdapter getBTAdapter() {
+        return mBTAdapter;
     }
 
     /**

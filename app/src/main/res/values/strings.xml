@@ -5,5 +5,9 @@
     <string name="beacons_list">List</string>
     <string name="scan_beacons">Scan Beacons</string>
     <string name="beacon_advertiser">Advertiser</string>
+    <string name="need_bluetooth">Need bluetooth</string>
+    <string name="enable">Enable</string>
+    <string name="last_event">Last Event:</string>
+    <string name="beacon_detail">Beacon Detail</string>
 
 </resources>
