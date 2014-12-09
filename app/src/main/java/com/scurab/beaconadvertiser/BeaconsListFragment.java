@@ -12,6 +12,7 @@ import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import com.easibeacon.protocol.IBeacon;
 import com.easibeacon.protocol.IBeaconListener;
 import com.easibeacon.protocol.IBeaconProtocol;
 
+import java.lang.reflect.Type;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
@@ -71,7 +73,11 @@ public class BeaconsListFragment extends Fragment implements IBeaconListener {
                 IBeacon beacon = getItem(position);
 
                 text1.setText(beacon.getUuidHexStringDashed());
+                text1.setTypeface(Typeface.MONOSPACE);
+                text1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
+
                 text2.setText("Major: " + beacon.getMajor() + " Minor: " + beacon.getMinor() + " Distance: " + beacon.getProximity() + "m.");
+                text2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
                 return view;
             }
         };
