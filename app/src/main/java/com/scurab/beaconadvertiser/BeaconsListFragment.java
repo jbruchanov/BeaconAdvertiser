@@ -10,7 +10,6 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
-import android.text.style.TypefaceSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -26,7 +25,6 @@ import com.easibeacon.protocol.IBeacon;
 import com.easibeacon.protocol.IBeaconListener;
 import com.easibeacon.protocol.IBeaconProtocol;
 
-import java.lang.reflect.Type;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
