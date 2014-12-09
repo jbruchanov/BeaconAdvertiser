@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="advertise_mode">
+        <item>ADVERTISE_MODE_BALANCED</item>
+        <item>ADVERTISE_MODE_LOW_LATENCY</item>
+        <item>ADVERTISE_MODE_LOW_POWER</item>
+    </string-array>
+    <integer-array name="advertise_mode_values">
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </integer-array>
+    <string-array name="advertise_tx">
+        <item>ADVERTISE_TX_POWER_HIGH</item>
+        <item>ADVERTISE_TX_POWER_LOW</item>
+        <item>ADVERTISE_TX_POWER_MEDIUM</item>
+        <item>ADVERTISE_TX_POWER_ULTRA_LOW</item>
+    </string-array>
+    <integer-array name="advertise_tx_values">
+        <item>3</item>
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </integer-array>
+</resources>

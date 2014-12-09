@@ -11,5 +11,14 @@
     <string name="beacon_detail">Beacon Detail</string>
 
 
-    <string name="estimote_uuid">F7826DA6-4FA2-4E98-8024-BC5B71E0893E</string>
+    <string name="estimote_uuid_value">F7826DA6-4FA2-4E98-8024-BC5B71E0893E</string>
+    <string name="err_a5_needed">Need at least Android 5...</string>
+    <string name="uuid">UUID</string>
+    <string name="random_uuid">Random UUID</string>
+    <string name="estimote_uuid">Estimote UUID</string>
+    <string name="start">Start</string>
+    <string name="mode">Mode</string>
+    <string name="tx">TX</string>
+    <string name="connectable">Connectable</string>
+    <string name="stop">Stop</string>
 </resources>

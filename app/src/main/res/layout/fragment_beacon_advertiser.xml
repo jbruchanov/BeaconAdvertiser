@@ -1,13 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/scan_beacons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/uuid" />
+
+        <EditText
+            android:id="@+id/uuid"
+            android:fontFamily="monospace"
+            android:textSize="14dp"
+            android:textAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/random_uuid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/random_uuid" />
+
+            <Button
+                android:id="@+id/estimote_uuid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/estimote_uuid" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mode" />
+
+        <Spinner
+            android:id="@+id/advertise_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/button_min_height"
+            android:entries="@array/advertise_mode"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tx" />
+
+        <Spinner
+            android:id="@+id/advertise_tx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/advertise_tx"
+            android:minHeight="@dimen/button_min_height"
+            />
+
+        <CheckBox
+            android:id="@+id/connectable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/connectable"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start" />
+    </LinearLayout>
+</ScrollView>
