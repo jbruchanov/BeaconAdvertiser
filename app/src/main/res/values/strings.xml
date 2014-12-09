@@ -10,4 +10,6 @@
     <string name="last_event">Last Event:</string>
     <string name="beacon_detail">Beacon Detail</string>
 
+
+    <string name="estimote_uuid">F7826DA6-4FA2-4E98-8024-BC5B71E0893E</string>
 </resources>
