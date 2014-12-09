@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BeaconAdvertiser</string>
+    <string name="beacons_list">List</string>
+    <string name="scan_beacons">Scan Beacons</string>
+    <string name="beacon_advertiser">Advertiser</string>
+
+</resources>
