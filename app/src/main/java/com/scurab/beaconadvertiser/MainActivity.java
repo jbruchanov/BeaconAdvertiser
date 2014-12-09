@@ -20,6 +20,7 @@ import android.support.v4.view.ViewPager;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 
+    private static final boolean USE_SERVICE = false;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -41,6 +42,12 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (USE_SERVICE) {
+            startService(new Intent(this, ScannerService.class));
+            //don't create fragments now, Bluetooth protocal has just 1 listener, so fragment will overwrite it and service won't log
+            return;
+        }
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
