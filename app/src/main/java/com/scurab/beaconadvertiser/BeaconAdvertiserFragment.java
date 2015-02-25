@@ -51,12 +51,14 @@ public class BeaconAdvertiserFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mButton = (Button) view.findViewById(R.id.start_button);
-        mUUID = (EditText) view.findViewById(R.id.uuid);
-        mMode = (Spinner) view.findViewById(R.id.advertise_mode);
-        mTX = (Spinner) view.findViewById(R.id.advertise_tx);
-        mConnectable = (CheckBox) view.findViewById(R.id.connectable);
-        bind(view);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mButton = (Button) view.findViewById(R.id.start_button);
+            mUUID = (EditText) view.findViewById(R.id.uuid);
+            mMode = (Spinner) view.findViewById(R.id.advertise_mode);
+            mTX = (Spinner) view.findViewById(R.id.advertise_tx);
+            mConnectable = (CheckBox) view.findViewById(R.id.connectable);
+            bind(view);
+        }
     }
 
     private void bind(View view) {
