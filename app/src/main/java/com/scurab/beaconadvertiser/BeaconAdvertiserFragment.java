@@ -39,13 +39,13 @@ public class BeaconAdvertiserFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             return inflater.inflate(R.layout.fragment_beacon_advertiser, container, false);
-        } else {
-            TextView tv = new TextView(getActivity());
-            tv.setText(R.string.err_a5_needed);
-            return tv;
-        }
+//        } else {
+//            TextView tv = new TextView(getActivity());
+//            tv.setText(R.string.err_a5_needed);
+//            return tv;
+//        }
     }
 
     @Override
@@ -56,7 +56,11 @@ public class BeaconAdvertiserFragment extends Fragment {
         mMode = (Spinner) view.findViewById(R.id.advertise_mode);
         mTX = (Spinner) view.findViewById(R.id.advertise_tx);
         mConnectable = (CheckBox) view.findViewById(R.id.connectable);
-        bind(view);
+        try {
+            bind(view);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void bind(View view) {
